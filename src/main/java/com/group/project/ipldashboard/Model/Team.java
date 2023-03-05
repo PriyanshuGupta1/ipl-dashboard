@@ -1,12 +1,11 @@
 package com.group.project.ipldashboard.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -19,7 +18,8 @@ public class Team {
     private String teamName;
     private Long totalMatches;
     private Long totalWins;
-
+    @Transient
+    private List <Match> matches;
     public Team(String teamName, Long totalMatches) {
         this.teamName=teamName;
         this.totalMatches=totalMatches;
